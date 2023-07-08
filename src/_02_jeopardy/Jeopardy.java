@@ -33,7 +33,7 @@ import game_tools.Sound;
 public class Jeopardy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
-	private JButton thirdButton, fourthButton;
+	private JButton thirdButton, fourthButton, fifthButton;
 	private JPanel quizPanel;
 	private int score = 0;
 	private JLabel scoreBox = new JLabel("0");
@@ -61,7 +61,7 @@ public class Jeopardy implements ActionListener {
 		// 5. Add the quizPanel to the frame
 		frame.add(quizPanel);
 		// 6. Use the createButton method to set the value of firstButton
-		firstButton = createButton("100");
+		firstButton = createButton("100$");
 		// 7. Add the firstButton to the quizPanel
 		quizPanel.add(firstButton);
 		// 8. Write the code to complete the createButton() method below. Check that your
@@ -71,12 +71,23 @@ public class Jeopardy implements ActionListener {
 		
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
-		secondButton = createButton("250");
+		secondButton = createButton("250$");
 		// 10. Add the secondButton to the quizPanel
 		quizPanel.add(secondButton);
+		thirdButton = createButton("500$");
+		quizPanel.add(thirdButton);
+		fourthButton = createButton("750$");
+		quizPanel.add(fourthButton);
+		fifthButton = createButton("1000$");
+		quizPanel.add(fifthButton);
+		
 		// 11. Add action listeners to the buttons (2 lines of code)
-		firstButton.addActionListener(null);
-		secondButton.addActionListener(null);
+		firstButton.addActionListener(this);
+		secondButton.addActionListener(this);
+		thirdButton.addActionListener(this);
+		fourthButton.addActionListener(this);
+		fifthButton.addActionListener(this);
+		
 		// 12. Write the code to complete the actionPerformed() method below
 		
 		// 13. Add buttons so that you have $100, $250, $500, $750 and $1000 questions
@@ -103,7 +114,7 @@ public class Jeopardy implements ActionListener {
 		// Increment the buttonCount (this should make the layout vertical)
 		buttonCount++;
 		// Return your new button instead of the temporary button
-		return new JButton("moneyText");
+		return moneyText;
 	}
 
 	@Override
@@ -118,17 +129,17 @@ public class Jeopardy implements ActionListener {
 			askQuestion("What was the first shoe worn by Michael Jordon during his basketball games?", "Air Jordan 1 Low", 100);
 			firstButton.setText(" ");
 		}else if(buttonPressed == secondButton){
-			askQuestion("What was the date when the Covid Pandemic Quarantine start for the United Kingdom?", "23 March 2020", 250);
+			askQuestion("Which shoe brand uses the motto 'Just Do it'?", "Nike", 250);
 			secondButton.setText(" ");
 		}else if(buttonPressed == thirdButton){
-			askQuestion("What was the date when the Covid Pandemic Quarantine start for the United Kingdom?", "23 March 2020", 250);
-			secondButton.setText(" ");
+			askQuestion("Which two companies were led by two brothers who later broke apart?","Puma and Adidas", 500);
+			thirdButton.setText(" ");
 		}else if(buttonPressed == fourthButton){
-			askQuestion("What was the date when the Covid Pandemic Quarantine start for the United Kingdom?", "23 March 2020", 250);
-			secondButton.setText(" ");
+			askQuestion("Which shoe sounds like its used when two people converse?","Converse", 750);
+			fourthButton.setText(" ");
 		}else if(buttonPressed == secondButton){
-			askQuestion("What was the date when the Covid Pandemic Quarantine start for the United Kingdom?", "23 March 2020", 250);
-			secondButton.setText(" ");
+			askQuestion("Which shoe brand proves to be popular amoung track atheltes? ","New Balance", 1000);
+			fifthButton.setText(" ");
 		}
 			// Call the askQuestion() method
  
@@ -192,7 +203,7 @@ public class Jeopardy implements ActionListener {
 	}
 
 	private void updateScore() {
-		scoreBox.setText("" + score);
+		scoreBox.setText("Money Won: " + score);
 	}
 
 	private  JPanel createHeader(String topicName) {
