@@ -158,18 +158,19 @@ public class Jeopardy implements ActionListener {
 		// Use the playJeopardyTheme() method to play music while the use thinks of an answer
 		playJeopardyTheme();
 		// Remove this temporary message and replace it with a pop-up that asks the user the question
-		JOptionPane.showInputDialog(question);
+		String answer = JOptionPane.showInputDialog(question);
 		
 		// Stop the theme music when they have entered their response.
 		stopJeopardyTheme();
 		// If the answer is correct
-		if (correctAnswer.equals(correctAnswer)) {
+		if (correctAnswer.equals(answer)) {
 			score += prizeMoney;
 			JOptionPane.showMessageDialog(firstButton, correctAnswer);
+			
 		}else {
 			score -= prizeMoney;
-			updateScore();
 		}
+		updateScore();
 			// Increase the score by the prizeMoney
 
 			// Pop up a message to tell the user they were correct
@@ -233,3 +234,5 @@ public class Jeopardy implements ActionListener {
 		frame.pack();
 	}
 }
+
+// Nothing Else to do in here
