@@ -22,13 +22,11 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
     FortuneTeller() throws Exception {
         // 1. Choose an image for your fortune teller and put it in your default package
         fortuneTellerImage = ImageIO.read(getClass().getResource("fortune teller.png"));
-        
         // 2. Adjust the frameWidth and frameHeight variables to fit your image nicely (doesn’t need a new line of code)
-        
         // 3. Complete the begin() method in the FortuneTellerRunner class
         
         // 4. add a mouse listener to the frame
-        
+        frame.addMouseListener(null);
     }
 
     @Override
@@ -40,9 +38,9 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
         
         // 6. Add the mouseY variable to the previous line so that it prints out too (no new line)
         
-        // 7. Adjust your secret location co-ordinates here:
-        int secretLocationX = 0;
-        int secretLocationY = 0;
+        // 7. Adjust your secret location coordinates here:
+        int secretLocationX = 1000;
+        int secretLocationY = 1000;
         
         // If the mouse co-ordinates and secret location are close, we'll let them ask a question.
         if (areClose(mouseX, secretLocationX) && areClose(mouseY, secretLocationY)) {
