@@ -8,7 +8,7 @@ public class FortuneTellerRunner {
     }
 
     static void begin() {
-    	System.out.println("Hello user. The hint for the secret location coordinates is it holds a 10 three times both ways.");
+    	System.out.println("Hello user. The hint for the secret location coordinates is that it feels awfully close to the center. ");
         // Welcome the user. Give them a hint for the secret location.
 
     }
