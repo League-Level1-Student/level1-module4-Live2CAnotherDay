@@ -1,6 +1,8 @@
 package _07_tv_show_episode_info;
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -8,13 +10,41 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class TVShowEpisodeInfoDisplayer {
+import _06_calculator.Calculator;
+
+public class TVShowEpisodeInfoDisplayer implements ActionListener {
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JButton subButton = new JButton("Submit");
+	JTextField input = new JTextField(10);
 	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new TVShowEpisodeInfoDisplayer().makeButtons();
+	}
 	public TVShowEpisodeInfoDisplayer() {
 		
 	}
+	public void makeButtons() {
+		frame.add(panel);
+		frame.setVisible(true);
+		frame.pack();
+		frame.setTitle("TV Show Info");
+		panel.add(subButton);
+		panel.add(input);
+		subButton.addActionListener(this);
+		frame.pack();
+	}
+	
+	
+	
+	
 
 	
 	
@@ -74,4 +104,16 @@ public class TVShowEpisodeInfoDisplayer {
 		
 		return res;
 	}
+@Override
+public void actionPerformed(ActionEvent e) {
+	// TODO Auto-generated method stub
+	JButton buttonPressed = (JButton) e.getSource();
+	if (subButton == buttonPressed) {
+		String input1 = input.getText();
+		String data = getShowEpisodeData(input1);
+		JOptionPane.showMessageDialog(null, data);
+	}
 }
+}
+
+/// Nothing Else to work in here.....
