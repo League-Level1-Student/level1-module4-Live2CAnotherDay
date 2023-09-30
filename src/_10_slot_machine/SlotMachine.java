@@ -38,12 +38,13 @@ public class SlotMachine implements ActionListener {
 
 	public void makeGUI() {
 		randomizer();
+		spinButton.addActionListener(this);
 		panel.add(label);
 		panel.add(label2);
 		panel.add(label3);
 		frame.add(panel);
 		frame.setVisible(true);
-		frame.add(spinButton);
+		panel.add(spinButton);
 		frame.setSize(100, 100);
 		frame.setTitle("Slot Machine");
 		frame.pack();
@@ -56,12 +57,24 @@ public class SlotMachine implements ActionListener {
 		// TODO Auto-generated method stub
 		JButton buttonPressed = (JButton) e.getSource();
 		if (buttonPressed == spinButton) {
+			
+			frame.remove(panel);
+			panel.remove(label);
+			panel.remove(label2);
+			panel.remove(label3);
 			randomizer();
+			
+			panel.add(label);
+			panel.add(label2);
+			panel.add(label3);
+			frame.add(panel);
+			frame.pack();
+			
 		}
 	}
 	public void randomizer() {
 		try {
-			int random = new Random().nextInt(2);
+			int random = new Random().nextInt(3);
 			if(random == 0) {
 				
 				label = createLabelImage(cherry);
@@ -73,7 +86,7 @@ public class SlotMachine implements ActionListener {
 				label = createLabelImage(orange);
 		
 			}
-			int random2 = new Random().nextInt(2);
+			int random2 = new Random().nextInt(3);
 			if(random2 == 0) {
 				label2 = createLabelImage(cherry);
 				
@@ -84,7 +97,7 @@ public class SlotMachine implements ActionListener {
 				label2 = createLabelImage(orange);
 		
 			}
-			int random3 = new Random().nextInt(2);
+			int random3 = new Random().nextInt(3);
 			if(random3 == 0) {
 				label3 = createLabelImage(cherry);
 				
@@ -95,6 +108,9 @@ public class SlotMachine implements ActionListener {
 				label3 = createLabelImage(orange);
 		
 			}
+			if(random == random2 && random2 == random3) {
+				System.out.println("You Win! But at what cost ...");
+			}
 		} catch (MalformedURLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -103,4 +119,4 @@ public class SlotMachine implements ActionListener {
 	
 
 }
-//key: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
+/// Nothing Else to work on here.
